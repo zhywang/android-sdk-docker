@@ -1,0 +1,6 @@
+language: java
+services:
+  - docker
+
+script:
+  - ./build.sh
