@@ -28,4 +28,4 @@ RUN echo y | android-sdk-linux/tools/bin/sdkmanager --sdk_root=/opt/android-sdk-
 # Setup environment
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-ENV JVM_ARGS "-Xmx2048m -XX:MaxPermSize=1024m"
+# ENV JVM_ARGS "-Xmx2048m -XX:MaxPermSize=1024m"
