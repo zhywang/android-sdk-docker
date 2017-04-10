@@ -1,11 +1,11 @@
-FROM ubuntu:16.04
+FROM debian:jessie-backports
 
 MAINTAINER Wang Zhiyong "zhywang@live.com"
 
 WORKDIR /opt
 
 # Install essantial tools
-RUN apt-get update && dpkg --add-architecture i386 && apt-get install -y git wget unzip libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 openjdk-8-jdk-headless && apt-get clean
+RUN apt-get update && dpkg --add-architecture i386 && apt-get install -y -t jessie-backports git wget unzip libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 openjdk-8-jre-headless openjdk-8-jdk-headless ca-certificates-java && apt-get clean
 
 # Install Android SDK
 ARG ANDROID_SDK_VERSION
