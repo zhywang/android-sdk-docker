@@ -13,8 +13,8 @@ ARG ANDROID_VERSION
 ARG ANDROID_BUILD_TOOLS_VERSION
 
 RUN mkdir android-sdk-linux &&\
- 	wget -q https://dl.google.com/android/repository/tools_r$ANDROID_SDK_VERSION-linux.zip &&\
- 	unzip -d android-sdk-linux tools_r$ANDROID_SDK_VERSION-linux.zip &&\
+ 	wget -q https://dl.google.com/android/repository/sdk-tools-linux-$ANDROID_SDK_VERSION.zip &&\
+ 	unzip -d android-sdk-linux sdk-tools-linux-$ANDROID_SDK_VERSION.zip &&\
  	chown -R root.root android-sdk-linux/tools &&\
  	rm -rf tools_r$ANDROID_SDK_VERSION-linux.zip
 RUN echo y | android-sdk-linux/tools/bin/sdkmanager --sdk_root=/opt/android-sdk-linux "platform-tools"
