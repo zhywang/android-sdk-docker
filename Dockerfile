@@ -28,4 +28,9 @@ RUN echo y | android-sdk-linux/tools/bin/sdkmanager --sdk_root=/opt/android-sdk-
 # Setup environment
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+
+# Install gradle
+ARG GRADLE_VERSION
+RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && unzip gradle-${GRADLE_VERSION}-bin.zip
+ENV PATH ${PATH}:/opt/gradle-${GRADLE_VERSION}/bin
 # ENV JVM_ARGS "-Xmx2048m -XX:MaxPermSize=1024m"
