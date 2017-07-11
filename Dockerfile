@@ -14,7 +14,7 @@ ARG ANDROID_BUILD_TOOLS_VERSION
 
 RUN mkdir android-sdk-linux &&\
  	wget -q https://dl.google.com/android/repository/sdk-tools-linux-$ANDROID_SDK_VERSION.zip &&\
- 	unzip -d android-sdk-linux sdk-tools-linux-$ANDROID_SDK_VERSION.zip &&\
+ 	unzip -qq -d android-sdk-linux sdk-tools-linux-$ANDROID_SDK_VERSION.zip &&\
  	chown -R root.root android-sdk-linux/tools &&\
  	rm -rf sdk-tools-linux-$ANDROID_SDK_VERSION.zip
 RUN echo y | android-sdk-linux/tools/bin/sdkmanager --sdk_root=/opt/android-sdk-linux "platform-tools"
@@ -28,7 +28,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Install gradle
 ARG GRADLE_VERSION
-RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && unzip gradle-${GRADLE_VERSION}-bin.zip && rm -rf gradle-${GRADLE_VERSION}-bin.zip
+RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && unzip -qq gradle-${GRADLE_VERSION}-bin.zip && rm -rf gradle-${GRADLE_VERSION}-bin.zip
 ADD init.gradle /opt/gradle-${GRADLE_VERSION}/init.d/init.gradle
 ENV PATH ${PATH}:/opt/gradle-${GRADLE_VERSION}/bin
 # ENV JVM_ARGS "-Xmx2048m -XX:MaxPermSize=1024m"
