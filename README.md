@@ -4,7 +4,7 @@
 
 This repo contains the Dockerfile of Android SDK Docker Image, you can get the image from [Docker Hub](https://hub.docker.com/r/zhywang/android-sdk).
 
-The image is based on Ubuntu 16.04 and OpenJdk8.
+The image is based on Debian Jessie backports and OpenJdk8.
 
 ## Version
 
