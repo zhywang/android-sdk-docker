@@ -1,6 +1,6 @@
-language: java
+language: generic
 services:
   - docker
 
 script:
-  - ./build.sh
+  - ./build.sh > /dev/null
