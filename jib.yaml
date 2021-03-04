@@ -1,0 +1,40 @@
+apiVersion: jib/v1alpha1
+kind: BuildFile
+
+from:
+  image: "gcr.io/distroless/java:8"
+  platforms:
+    - architecture: "amd64"
+      os: "linux"
+
+creationTime: 0
+
+format: OCI
+
+environment:
+  "ANDROID_HOME": "/opt/android-sdk-linux"
+  "PATH": "/opt/android-sdk-linux/tools:/opt/android-sdk-linux/platform-tools:/opt/gradle/bin:/usr/java/openjdk-8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+volumes:
+  - "/app"
+
+workingDirectory: "/app"
+
+entrypoint:
+  - "gradle"
+  - "clean"
+  - "build"
+
+layers:
+  properties:
+    filePermissions: "777"
+    directoryPermissions: "777"
+  entries:
+    - name: "android-sdk"
+      files:
+        - src: "android-sdk-linux"
+          dest: "/opt/android-sdk-linux"
+    - name: "gradle"
+      files:
+        - src: "gradle"
+          dest: "/opt/gradle"
