@@ -1,6 +1,5 @@
-language: generic
-services:
-  - docker
-
+language: java
+jdk:
+  - openjdk8
 script:
-  - ./build.sh > /dev/null
+  - ./build.sh
