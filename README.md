@@ -1,7 +1,8 @@
 # Android SDK Container Image
 [![Build Status](https://travis-ci.org/zhywang/android-sdk-docker.svg?branch=master)](https://travis-ci.org/zhywang/android-sdk-docker)
 
-The image is based on gcr.io/distroless/java:8.
+The image is based on openjdk:8-jdk-slim.
+
 Github: https://github.com/zhywang/android-sdk-docker
 
 # Version
